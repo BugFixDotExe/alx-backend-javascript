@@ -4,4 +4,4 @@ This was a series of projects provided by ALX SE School in which I will learn an
 contained follows:
 
 ## Tasks
-* [0x00. Fix my code](./0x00-ES6_basic)
+* [/0x00-ES6_basic](./0x00-ES6_basic)
