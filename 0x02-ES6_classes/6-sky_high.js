@@ -1,17 +1,18 @@
 import Building from './5-building';
 
+export default class SkyHighBuilding extends Building {
+  constructor(sqft, floors) {
+    if (!Number.isInteger(floors)) { return new TypeError('Floors must be a Number'); }
+    if (!Number.isInteger(sqft)) { return new TypeError('Floors must be a Number'); }
+    super(sqft);
+    this._floors = floors;
+  }
 
-export default class SkyHighBuilding extends Building{
-    constructor(sqft, floors) {
-        if (!Number.isInteger(floors)){return new TypeError('Floors must be a Number');}
-        super(sqft);
-        this._sqft = sqft;
-        this._floors = floors;
-    }
+  get sqft() { return this._sqft; }
 
-    get sqft(){return this._sqft}
-    get floors(){return this._floors}
-    evacuationWarningMessage(){
-        return (`Evacuate slowly the ${this.floors} floors.`)
-    }
+  get floors() { return this._floors; }
+
+  evacuationWarningMessage() {
+    return (`Evacuate slowly the ${this.floors} floors.`);
+  }
 }
