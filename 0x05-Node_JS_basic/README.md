@@ -1,113 +1,149 @@
 
-# 0x03. ES6 data manipulation
+# 0x05. NodeJS Basics
 
-In this project, I began practicing using the ES6 to be more specific ES6 data manipulation, for my specialization into backend development using Javascript.
+In this project, I began practicing using the ES6 to be more specific ES6 with NodeJS and Express, for my specialization into backend development using Javascript.
 
+* **Tags**: [Back-end JavaScript ES6 NodeJS ExpressJS]
 ## Tasks :page_with_curl:
 
-* **0. Basic list of objects**
-  * [0-classroom](./0-classroom.js): Create a function named getListStudents that returns an array of objects.
-
-  Each object should have three attributes: id (Number), firstName (String), and location (String).
-
-  The array contains the following students in order:
-
-      Guillaume, id: 1, in San Francisco
-      James, id: 2, in Columbia
-      Serena, id: 5, in San Francisco
+* **0. Executing basic javascript with Node JS**
+  * [0-classroom](./0-classroom.js): In the file 0-console.js, create a function named
+  displayMessage that prints in STDOUT the string argument.
 
 
-
-* **1. More mapping**
-  * [1-get_list_student_ids](./1-get_list_student_ids.js): Create a function getListStudentIds that returns an array of ids from a list of object.
-
-  This function is taking one argument which is an array of objects - and this array is the same format as getListStudents from the previous task.
-
-  If the argument is not an array, the function is returning an empty array.
-
-  You must use the map function on the array.
+* **1. Using Process stdin**
+  * [1-stdin](./1-stdin.js):Create a program named 1-stdin.js that will be executed through command line:
+  
+  It should display the message Welcome to Holberton School, what is your name? (followed by a new line)
+  The user should be able to input their name on a new line
+  The program should display Your name is: INPUT
+  When the user ends the program, it should display This important software is now closing (followed by a new line)
+  Requirements:
+  
+  Your code will be tested through a child process, make sure you have everything you need for that
 
 
 
-* **2. Filter**
-  * [2-hbtn_course](./2-hbtn_course.js): Create a function getStudentsByLocation that returns an array of objects who are located in a specific city.
-
-  It should accept a list of students (from getListStudents) and a city (string) as parameters.
-
-  You must use the filter function on the array.
-
-
-* **3. Reduce**
-  * [3-get_ids_sum](./3-get_ids_sum.js): Create a function getStudentIdsSum that returns the sum of all the student ids.
-
-  It should accept a list of students (from getListStudents) as a parameter.
-
-  You must use the reduce function on the array. 
+* **2. Reading a file synchronously with Node JS**
+  * [2-read_file](./2-read_file.js):Using the database database.csv (provided in project description), create a function countStudents in the file 2-read_file.js
+  
+  Create a function named countStudents. It should accept a path in argument
+  The script should attempt to read the database file synchronously
+  If the database is not available, it should throw an error with the text Cannot load the database
+  If the database is available, it should log the following message to the console Number of students: NUMBER_OF_STUDENTS
+  It should log the number of students in each field, and the list with the following format: Number of students in FIELD: 6. List: LIST_OF_FIRSTNAMES
+  CSV file can contain empty lines (at the end) - and they are not a valid student!
 
 
-
-* **4. Combine**
-  * [4-update_grade_by_city](./4-update_grade_by_city.js): Create a function updateStudentGradeByCity that returns an array of students for a specific city with their new grade
-
-  It should accept a list of students (from getListStudents), a city (String), and newGrades (Array of “grade” objects) as parameters.
-
-  newGrades is an array of objects with this format:
-  ```
-    {
-      studentId: 31,
-      grade: 78,
-    }
-  ```
-  If a student doesn’t have grade in newGrades, the final grade should be N/A.
-
-  You must use filter and map combined.
+* **3. Reading a file asynchronously with Node JS**
+  * [3-read_file_async](./3-read_file_async.js): Using the database database.csv (provided in project description), create a function countStudents in the file 3-read_file_async.js
+  
+  Create a function named countStudents. It should accept a path in argument (same as in 2-read_file.js)
+  The script should attempt to read the database file asynchronously
+  The function should return a Promise
+  If the database is not available, it should throw an error with the text Cannot load the database
+  If the database is available, it should log the following message to the console Number of students: NUMBER_OF_STUDENTS
+  It should log the number of students in each field, and the list with the following format: Number of students in FIELD: 6. List: LIST_OF_FIRSTNAMES
+  CSV file can contain empty lines (at the end) - and they are not a valid student!
 
 
 
-* **5. Typed Arrays**
-      * [5-typed_arrays](./5-typed_arrays.js): Create a function named createInt8TypedArray that returns a new ArrayBuffer with an Int8 value at a specific position.
-
-        It should accept three arguments: length (Number), position (Number), and value (Number).
-
-        If adding the value is not possible the error Position outside range should be thrown.
-
-
-* **6. Set data structure**
-  * [6-set](./6-set.js): Create a function named setFromArray that returns a Set from an array.
-
-  It accepts an argument (Array, of any kind of element). 
-
-
-* **7. More set data structure**
-    * [7-has_array_values](./7-has_array_values.js): Create a function named hasValuesFromArray that returns a boolean if all the elements in the array exist within the set.
-
-    It accepts two arguments: a set (Set) and an array (Array). 
-
-
-* **8. Clean set**
-  * [8-clean_set](./8-clean_set.js): Create a function named cleanSet that returns a string of all the set values that start with a specific string (startString).
-
-  It accepts two arguments: a set (Set) and a startString (String).
-
-  When a value starts with startString you only append the rest of the string. The string contains all the values of the set separated by -
+* **4. Create a small HTTP server using Node's HTTP module**
+  * [4-http](./4-http.js): In a file named 4-http.js, create a small HTTP server using the http module:
+  
+  It should be assigned to the variable app and this one must be exported
+  HTTP server should listen on port 1245
+  Displays Hello Holberton School! in the page body for any endpoint as plain text
 
 
 
-* **9. Map data structure**
-  * [9-groceries_list](./9-groceries_list.js): Create a function named groceriesList that returns a map of groceries with the following items (name, quantity):
+* **5. Create a more complex HTTP server using Node's HTTP module**
+    * [5-http](./5-http.js): In a file named 5-http.js, create a small HTTP server using the http module:
+      
+      It should be assigned to the variable app and this one must be exported
+      HTTP server should listen on port 1245
+      It should return plain text
+      When the URL path is /, it should display Hello Holberton School! in the page body
+      Wh7-http_express.jsen the URL path is /students, it should display This is the list of our students followed by the same content as the file 3-read_file_async.js (with and without the database) - the name of the database must be passed as argument of the file
+      CSV file can contain empty lines (at the end) - and they are not a valid student!
 
-    Apples, 10
-    Tomatoes, 10
-    Pasta, 1
-    Rice, 1
-    Banana, 5
+
+* **6. Create a small HTTP server using Express**
+  * [6-http_express.js](./6-http_express.js): Install Express and in a file named 6-http_express.js, create a small HTTP server using Express module:
+  
+  It should be assigned to the variable app and this one must be exported
+  HTTP server should listen on port 1245
+  Displays Hello Holberton School! in the page body for the endpoint /
+
+  
+* **7. Create a more complex HTTP server using Express**
+    * [7-http_express](./7-http_express.js): In a file named 7-http_express.js, recreate the small HTTP server using Express:
+    
+    It should be assigned to the variable app and this one must be exported
+    HTTP server should listen on port 1245
+    It should return plain text
+    When the URL path is /, it should display Hello Holberton School! in the page body
+    When the URL path is /students, it should display This is the list of our students followed by the same content as the file 3-read_file_async.js (with and without the database) - the name of the database must be passed as argument of the file
+    CSV file can contain empty lines (at the end) - and they are not a valid student! 
 
 
+* **8. Organize a complex HTTP server using Express**
+  * [8-clean_set](./8-clean_set.js): Obviously writing every part of a server within a single file is not sustainable.
+  Let’s create a full server in a directory named full_server.
+  Since you have used ES6 and Babel in the past projects, let’s use babel-node to allow to use ES6 functions like import or export.
+  
+  * **8.1 Organize the structure of the server**
+    * [8-clean_set](./8-clean_set.js):Create 2 directories within:
+    controllers
+    routes
+    Create a file full_server/utils.js, in the file create a function named readDatabase that accepts a file path as argument:
+    It should read the database asynchronously
+    It should return a promise
+    When the file is not accessible, it should reject the promise with the error
+    When the file can be read, it should return an object of arrays of the firstname of students per fields
+    
+    
+    * **8.2 Write the App controller**
+      * [8-clean_set](./8-clean_set.js): Inside the file full_server/controllers/AppController.js:
+      
+      Create a class named AppController. Add a static method named getHomepage
+      The method accepts request and response as argument. It returns a 200 status and the message Hello Holberton School!
 
-* **10. More map data structure**
-   * [10-update_uniq_items](./10-update_uniq_items.js): Create a function named updateUniqueItems that returns an updated map for all items with initial quantity at 1.
+      * **8.3 Write the Students controller**
+        * [8-clean_set](./8-clean_set.js): Inside the file full_server/controllers/StudentsController.js, create a class named StudentsController. Add two static methods:
+        
+        The first one is getAllStudents:
+        
+        The method accepts request and response as argument
+        It should return a status 200
+        It calls the function readDatabase from the utils file, and display in the page:
+        First line: This is the list of our students
+        And for each field (order by alphabetic order case insensitive), a line that displays the number of students in the field, and the list of first names (ordered by appearance in the database file) with the following format: Number of students in FIELD: 6. List: LIST_OF_FIRSTNAMES
+        If the database is not available, it should return a status 500 and the error message Cannot load the database
+        The second one is getAllStudentsByMajor:
+        
+        The method accepts request and response as argument
+        It should return a status 200
+        It uses a parameter that the user can pass to the browser major. The major can only be CS or SWE. If the user is passing another parameter, the server should return a 500 and the error Major parameter must be CS or SWE
+        It calls the function readDatabase from the utils file, and display in the page the list of first names for the students (ordered by appearance in the database file) in the specified field List: LIST_OF_FIRSTNAMES_IN_THE_FIELD
+        If the database is not available, it should return a status 500 and the error message Cannot load the database
 
-  It should accept a map as an argument. The map it accepts for argument is similar to the map you create in the previous task.
+        * **8.4 Write the routes**
+          * Inside the file full_server/routes/index.js:
+          
+          Link the route / to the AppController
+          Link the route /students and /students/:majorto the StudentsController
 
-  For each entry of the map where the quantity is 1, update the quantity to 100. If updating the quantity is not possible (argument is not a map) the error Cannot process should be thrown.
+          * **8.5 Write the server reusing everything you created**
+            * Inside the file named full_server/server.js, create a small Express server:
+            
+            It should use the routes defined in full_server/routes/index.js
+            It should use the port 1245
 
+            * **8.6 Update package.json (if you are running it from outside the folder full_server)**
+              * If you are starting node from outside of the folder full_server, you will have to update the command dev by: nodemon --exec babel-node --presets babel-preset-env ./full_server/server.js ./database.csv
+              
+              Warning:
+              
+              Don’t forget to export your express app at the end of server.js (export default app;)
+              The database filename is passed as argument of the server.js BUT, for testing purpose, you should retrieve this filename at the execution (when getAllStudents or getAllStudentsByMajor are called for example)
