@@ -11,7 +11,6 @@ function countStudents(pathToFile) {
       .split('\n')
       .filter((line) => line.trim() !== ''); // Remove empty lines
 
-    const headers = lines[0].split(','); // Header row
     const students = lines.slice(1); // Exclude header
 
     if (students.length === 0) {
@@ -23,15 +22,12 @@ function countStudents(pathToFile) {
 
     students.forEach((line) => {
       const fields = line.split(',');
-      if (fields.length >= headers.length) {
-        const field = fields[fields.length - 1].trim();
-        const name = fields[0].trim();
-
-        if (field === 'CS') {
-          csStudents.push(name);
-        } else if (field === 'SWE') {
-          sweStudents.push(name);
-        }
+      console.log(fields[fields.length - 1]);
+      if (fields[fields.length - 1] === 'CS') {
+        csStudents.push(fields[0]);
+      }
+      if (fields[fields.length - 1] === 'SWE') {
+        sweStudents.push(fields[0]);
       }
     });
 
