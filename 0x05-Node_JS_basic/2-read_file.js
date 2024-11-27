@@ -19,8 +19,8 @@ function countStudents(pathToFile) {
       }
     });
     console.log(`Number of students: ${newData.length - 2}`);
-    console.log(`Number of students in CS: ${numberOfCS.length} List:`, numberOfCS.join(', '));
-    console.log(`Number of students in SWE: ${numberOfSWE.length} List:`, numberOfSWE.join(', '));
+    console.log(`Number of students in CS: ${numberOfCS.length}. List:`, numberOfCS.join(', '));
+    console.log(`Number of students in SWE: ${numberOfSWE.length}. List:`, numberOfSWE.join(', '));
   } catch (error) {
     throw new Error('Cannot load the database');
   }
