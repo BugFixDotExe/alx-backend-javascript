@@ -18,9 +18,9 @@ function countStudents(pathToFile) {
         numberOfSWE.push(value.split(',')[0]);
       }
     });
-    console.log(`Number of students: ${newData.length - 2}`);
-    console.log(`Number of students in CS: ${numberOfCS.length}. List:`, numberOfCS.join(', '));
-    console.log(`Number of students in SWE: ${numberOfSWE.length}. List:`, numberOfSWE.join(', '));
+    process.stdout.write(`Number of students: ${newData.length - 2}\n`);
+    process.stdout.write(`Number of students in CS: ${numberOfCS.length}. List: ${numberOfCS.join(', ')}\n`);
+    process.stdout.write(`Number of students in SWE: ${numberOfSWE.length}. List: ${numberOfSWE.join(', ')}\n`);
   } catch (error) {
     throw new Error('Cannot load the database');
   }
