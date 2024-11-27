@@ -1,28 +1,46 @@
 const fs = require('fs');
 
 function countStudents(pathToFile) {
-  if (pathToFile === null) {
-    throw Error('Cannot load the database');
+  if (!pathToFile) {
+    throw new Error('Cannot load the database');
   }
+
   try {
-    const numberOfCS = [];
-    const numberOfSWE = [];
-    let newData = [];
     const data = fs.readFileSync(pathToFile, 'utf8');
-    newData = data.split('\n');
-    newData.forEach((value) => {
-      if (value.includes('CS')) {
-        numberOfCS.push(value.split(',')[0]);
-      }
-      if (value.includes('SWE')) {
-        numberOfSWE.push(value.split(',')[0]);
+    const lines = data
+      .split('\n')
+      .filter((line) => line.trim() !== ''); // Remove empty lines
+
+    const headers = lines[0].split(','); // Header row
+    const students = lines.slice(1); // Exclude header
+
+    if (students.length === 0) {
+      throw new Error('No valid student records found');
+    }
+
+    const csStudents = [];
+    const sweStudents = [];
+
+    students.forEach((line) => {
+      const fields = line.split(',');
+      if (fields.length >= headers.length) {
+        const field = fields[fields.length - 1].trim();
+        const name = fields[0].trim();
+
+        if (field === 'CS') {
+          csStudents.push(name);
+        } else if (field === 'SWE') {
+          sweStudents.push(name);
+        }
       }
     });
-    process.stdout.write(`Number of students: ${newData.length - 2}\n`);
-    process.stdout.write(`Number of students in CS: ${numberOfCS.length}. List: ${numberOfCS.join(', ')}\n`);
-    process.stdout.write(`Number of students in SWE: ${numberOfSWE.length}. List: ${numberOfSWE.join(', ')}\n`);
+
+    console.log(`Number of students: ${students.length}`);
+    console.log(`Number of students in CS: ${csStudents.length}. List: ${csStudents.join(', ')}`);
+    console.log(`Number of students in SWE: ${sweStudents.length}. List: ${sweStudents.join(', ')}`);
   } catch (error) {
     throw new Error('Cannot load the database');
   }
 }
+
 module.exports = countStudents;
