@@ -11,7 +11,7 @@ app.get('/students', (req, res) => {
   try {
     fs.readFile(process.argv[2], 'utf8', (err, data) => {
       if (err) {
-        throw new Error('Cannot load the database');
+        res
       }
       const lines = data.split('\n').filter((line) => line !== '');
       const students = lines.slice(1);
